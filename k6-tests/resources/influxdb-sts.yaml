@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+    labels:
+        app: influxdb
+    name: influxdb
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: influxdb
+    serviceName: influxdb
+    template:
+        metadata:
+            labels:
+                app: influxdb
+        spec:
+            containers:      
+              - image: influxdb:1.8.10
+                name: influxdb
+                resources:
+                  requests:
+                    cpu: 3
+                ports:
+                  - containerPort: 8086
+                    name: influxdb
+                volumeMounts:
+                  - mountPath: /var/lib/influxdb
+                    name: data
+                envFrom:
+                  - secretRef:
+                      name: influxdb-secrets
+            nodeSelector:
+              workload: neles-influx
+    volumeClaimTemplates:
+      - metadata:
+            name: data
+        spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+                requests:
+                    storage: 10G
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: influxdb
+spec:
+    ports:
+      - name: influxdb
+        port: 8086
+        targetPort: 8086
+    selector:
+        app: influxdb
+    type: ClusterIP

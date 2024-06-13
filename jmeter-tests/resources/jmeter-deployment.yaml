@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jmeter-deployment
+  name: jmeter-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jmeter-deployment
+  template:
+    metadata:
+      labels:
+        app: jmeter-deployment
+    spec:
+      containers:
+      - image: 687786/jmeter-prometheus:0.2
+        name: jmeter
+        command: [ "sh", "-c", "--" ]
+        args: [ "while true; do sleep 36000; done;" ]
+        volumeMounts:
+          - mountPath: /jmeterscripts
+            name: jmeterscripts-config
+      volumes:
+        - name: jmeterscripts-config
+          projected:
+            sources:
+              - configMap:
+                  name: jmeterscripts-config

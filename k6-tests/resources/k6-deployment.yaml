@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: k6-deployment
+  name: k6-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k6-deployment
+  template:
+    metadata:
+      labels:
+        app: k6-deployment
+    spec:
+      containers:
+      - image: grafana/k6
+        name: k6
+        command: [ "sh", "-c", "--" ]
+        args: [ "while true; do sleep 36000; done;" ]
+        volumeMounts:
+          - mountPath: /scripts/test.js
+            subPath: test.js
+            name: k6-scripts-config
+          - mountPath: /k6scripts
+            name: k6scripts-config
+      nodeSelector:
+        workload: nilesh-node
+      volumes:
+        - name: k6-scripts-config
+          configMap:
+            name: k6-scripts-config
+        - name: k6scripts-config
+          projected:
+            sources:
+              - configMap:
+                  name: k6scripts-config

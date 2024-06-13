@@ -1,0 +1,2614 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "uid": "custom-dashboard"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "Dashboard",
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 2,
+    "id": 8,
+    "links": [
+      {
+        "asDropdown": false,
+        "icon": "external link",
+        "includeVars": true,
+        "keepTime": true,
+        "tags": [],
+        "targetBlank": true,
+        "title": "",
+        "tooltip": "",
+        "type": "dashboards",
+        "url": ""
+      }
+    ],
+    "panels": [
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 69,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "Performance Metrics",
+        "type": "row"
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Active VUs"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 1
+        },
+        "hiddenSeries": false,
+        "id": 1,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "jmeter_active_threads",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Virtual Users",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fill": 3,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 9,
+          "x": 0,
+          "y": 9
+        },
+        "hiddenSeries": false,
+        "id": 17,
+        "interval": "1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": false,
+          "max": true,
+          "min": true,
+          "rightSide": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 0,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "rate(jmeter_requests{requestStatus=\"PASS\"}[2s])",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Requests per Second",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 8,
+          "x": 9,
+          "y": 9
+        },
+        "hiddenSeries": false,
+        "id": 82,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.65,sum by (le) (rate(jmeter_response_time_histogram_bucket[2s])))",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_avg{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}",
+            "hide": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Errors"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 10,
+          "w": 7,
+          "x": 17,
+          "y": 9
+        },
+        "hiddenSeries": false,
+        "id": 7,
+        "interval": "1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "seriesOverrides": [
+          {
+            "$$hashKey": "object:237",
+            "alias": "Num Errors",
+            "color": "#BF1B00"
+          }
+        ],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "rate(jmeter_requests{requestStatus=\"FAIL\"}[2s])",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Errors Per Second",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 0,
+          "y": 19
+        },
+        "hiddenSeries": false,
+        "id": 88,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p50{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 50",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 12,
+          "y": 19
+        },
+        "hiddenSeries": false,
+        "id": 87,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p60{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 60",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 0,
+          "y": 30
+        },
+        "hiddenSeries": false,
+        "id": 86,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p65{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 65",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 12,
+          "y": 30
+        },
+        "hiddenSeries": false,
+        "id": 89,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p75{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 75",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 0,
+          "y": 41
+        },
+        "hiddenSeries": false,
+        "id": 90,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p80{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 80",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 12,
+          "y": 41
+        },
+        "hiddenSeries": false,
+        "id": 91,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p90{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 90",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 0,
+          "y": 52
+        },
+        "hiddenSeries": false,
+        "id": 92,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p95{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 95",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "Response Time",
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 11,
+          "w": 12,
+          "x": 12,
+          "y": 52
+        },
+        "hiddenSeries": false,
+        "id": 93,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": true,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "k6_http_req_duration_p99{testrun=\"$TestRun\", workflow=\"$Phase\", name=\"$Api\"}",
+            "fullMetaSearch": false,
+            "hide": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Response Time 99",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:60",
+            "format": "s",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:61",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 63
+        },
+        "id": 72,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "Application Resource Usage Metrics",
+        "type": "row"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "resources_0_stats_usage_cpu",
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 64
+        },
+        "hiddenSeries": false,
+        "id": 83,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "connected",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "repeat": "APPNAME",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "resources_0_stats_usage_cpu{appname=\"$APPNAME\", testrun=\"$TestRun\", workflow=\"$Phase\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "App CPU Usage",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "percentunit",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "displayName": "resources_0_stats_usage_mem",
+            "unit": "decbytes"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 64
+        },
+        "hiddenSeries": false,
+        "id": 75,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "connected",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "repeat": "APPNAME",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "resources_0_stats_usage_mem{appname=\"$APPNAME\", testrun=\"$TestRun\", workflow=\"$Phase\"}",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "App Memory Usage",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "decbytes",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 72
+        },
+        "id": 70,
+        "panels": [],
+        "repeat": "Measurement",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "http request duration",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "ms"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 0,
+          "y": 73
+        },
+        "id": 11,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "http_req_duration (mean)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 3,
+          "y": 73
+        },
+        "id": 15,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.50, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "expr": "",
+            "hide": false,
+            "instant": false,
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "http_req_duration (med)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 6,
+          "y": 73
+        },
+        "id": 16,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "value",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "http_req_duration  (min)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 3,
+          "x": 9,
+          "y": 73
+        },
+        "id": 85,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(1.0, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "http_req_duration (max)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 12,
+          "y": 73
+        },
+        "id": 12,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.9, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "http_req_duration  (p90)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 16,
+          "y": 73
+        },
+        "id": 13,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.95, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "http_req_duration  (p95)",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 2,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 20,
+          "y": 73
+        },
+        "id": 84,
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 40
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.0",
+        "repeatDirection": "v",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.99, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "http_req_duration  (p99)",
+        "type": "stat"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "unit": "s"
+          },
+          "overrides": []
+        },
+        "fill": 3,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 0,
+          "y": 76
+        },
+        "height": "250px",
+        "hiddenSeries": false,
+        "id": 5,
+        "interval": ">1s",
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "hideZero": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null as zero",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "10.4.0",
+        "pointradius": 1,
+        "points": false,
+        "renderer": "flot",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(1.0, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "instant": false,
+            "legendFormat": "Max RT",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.9, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "hide": false,
+            "instant": false,
+            "legendFormat": "90th Percentile RT",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0.95, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "hide": false,
+            "instant": false,
+            "legendFormat": "95th Percentile RT",
+            "range": true,
+            "refId": "C"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "editorMode": "code",
+            "expr": "histogram_quantile(0, sum by(le) (k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}))",
+            "hide": false,
+            "instant": false,
+            "legendFormat": "Min RT",
+            "range": true,
+            "refId": "D"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "http request duration (over time) ",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "s",
+            "logBase": 2,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "cards": {},
+        "color": {
+          "cardColor": "rgb(0, 234, 255)",
+          "colorScale": "sqrt",
+          "colorScheme": "interpolateRdYlGn",
+          "exponent": 0.5,
+          "mode": "spectrum"
+        },
+        "dataFormat": "timeseries",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ediayoqfhys5cc"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "scaleDistribution": {
+                "type": "linear"
+              }
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 12,
+          "y": 76
+        },
+        "heatmap": {},
+        "height": "250px",
+        "hideZeroBuckets": false,
+        "highlightCards": true,
+        "id": 8,
+        "interval": ">1s",
+        "legend": {
+          "show": false
+        },
+        "options": {
+          "calculate": true,
+          "calculation": {},
+          "cellGap": 2,
+          "cellValues": {},
+          "color": {
+            "exponent": 0.5,
+            "fill": "rgb(0, 234, 255)",
+            "mode": "scheme",
+            "reverse": false,
+            "scale": "exponential",
+            "scheme": "RdYlGn",
+            "steps": 128
+          },
+          "exemplars": {
+            "color": "rgba(255,0,255,0.7)"
+          },
+          "filterValues": {
+            "le": 1e-9
+          },
+          "legend": {
+            "show": false
+          },
+          "rowsFrame": {
+            "layout": "auto"
+          },
+          "showValue": "never",
+          "tooltip": {
+            "mode": "single",
+            "showColorScale": false,
+            "yHistogram": true
+          },
+          "yAxis": {
+            "axisPlacement": "left",
+            "reverse": false,
+            "unit": "s"
+          }
+        },
+        "pluginVersion": "10.4.0",
+        "repeat": "Api",
+        "repeatDirection": "v",
+        "reverseYBuckets": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "ediayoqfhys5cc"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "rate(k6_http_req_duration_seconds{name=\"$Api\", testrun=\"$TestRun\", workflow=\"$Phase\"}[2s])",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "instant": false,
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+          }
+        ],
+        "title": "http request duration (over time)",
+        "tooltip": {
+          "show": true,
+          "showHistogram": true
+        },
+        "type": "heatmap",
+        "xAxis": {
+          "show": true
+        },
+        "yAxis": {
+          "format": "ms",
+          "logBase": 1,
+          "show": true
+        },
+        "yBucketBound": "auto"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 39,
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "isNone": true,
+            "selected": false,
+            "text": "None",
+            "value": ""
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ediayoqfhys5cc"
+          },
+          "definition": "label_values(testrun)",
+          "hide": 0,
+          "includeAll": false,
+          "multi": false,
+          "name": "TestRun",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values(testrun)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 1,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": "*",
+          "current": {
+            "selected": false,
+            "text": "CustomRun",
+            "value": "CustomRun"
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ediayoqfhys5cc"
+          },
+          "definition": "label_values({testrun=\"$TestRun\"},workflow)",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Phase",
+          "multi": false,
+          "name": "Phase",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values({testrun=\"$TestRun\"},workflow)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 1,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "allValue": "*",
+          "current": {
+            "selected": true,
+            "text": [
+              "All"
+            ],
+            "value": [
+              "$__all"
+            ]
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ediayoqfhys5cc"
+          },
+          "definition": "label_values({testrun=\"$TestRun\", workflow=\"$Phase\"},appname)",
+          "hide": 0,
+          "includeAll": true,
+          "label": "AppName",
+          "multi": true,
+          "name": "APPNAME",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values({testrun=\"$TestRun\", workflow=\"$Phase\"},appname)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 1,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "current": {
+            "selected": true,
+            "text": [
+              "All"
+            ],
+            "value": [
+              "$__all"
+            ]
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ediayoqfhys5cc"
+          },
+          "definition": "label_values({testrun=\"$TestRun\", workflow=\"$Phase\"},name)",
+          "hide": 0,
+          "includeAll": true,
+          "label": "API",
+          "multi": true,
+          "name": "Api",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values({testrun=\"$TestRun\", workflow=\"$Phase\"},name)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "^(?:(?!\\/oauth\\/token).)*$",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "2024-04-30T10:12:33.987Z",
+      "to": "2024-04-30T10:44:29.596Z"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "2m",
+        "5m",
+        "30m"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "browser",
+    "title": "New Dashboard for Prometheus for Jmeter",
+    "uid": "grafanaJmeter",
+    "version": 1,
+    "weekStart": ""
+  }

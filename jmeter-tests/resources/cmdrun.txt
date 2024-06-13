@@ -1,0 +1,5 @@
+cmds to run in the container
+# ./jmeter -n -t /jmeterscripts/test1.jmx -Jprometheus.collect_assertions=true -Jprometheus.quantiles_age=2 -Jprometheus.push_interval=1
+# ./jmeter -n -t /jmeterscripts/httpbin-get.jmx -Jprometheus.collect_assertions=true -Jprometheus.quantiles_age=2 -Jprometheus.push_interval=1 -Jprometheus.collect_jvm=true
+# ./jmeter -n -t /jmeterscripts/httpbin-post-1kbpayload.jmx -Jprometheus.collect_assertions=true -Jprometheus.quantiles_age=2 -Jprometheus.push_interval=1 -Jprometheus.collect_jvm=true
+# ./jmeter -n -t /jmeterscripts/httpbin-post-11kbpayload.jmx -Jprometheus.collect_assertions=true -Jprometheus.quantiles_age=2 -Jprometheus.push_interval=1 -Jprometheus.collect_jvm=true

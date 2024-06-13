@@ -1,0 +1,190 @@
+apiVersion: v1
+data:
+  httpbin_multiapi_1.js: "import http from 'k6/http';\nimport { check } from 'k6';\nimport
+    { Rate } from 'k6/metrics';\nimport { Trend } from 'k6/metrics';\nimport { sleep
+    } from 'k6';\nimport encoding from 'k6/encoding';\nimport {SharedArray} from \"k6/data\"\nimport
+    { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';\nimport { uuidv4,
+    randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';\n\nexport
+    let options = {\n  tags: {\n    \"workflow\": \"CustomRun\",\n    \"testrun\":
+    \"my-testrun\"\n  },\n};\n\nexport function setup() {\nlet access_tokens = {};\nreturn
+    access_tokens;\n}\n\n// Variable Declarations\n\nlet getcallURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/get\";\n
+    \ \nlet getcallParams = {\n    headers: {},\n    tags: {\n      name: \"getcall\"\n
+    \   },\n  };\n  \nlet getcall2Params = {\n    headers: {},\n    tags: {\n      name:
+    \"getcall2\"\n    },\n  };\n  \nlet getcall3Params = {\n    headers: {},\n    tags:
+    {\n      name: \"getcall3\"\n    },\n  };\n  \n\nexport default function (data)
+    {\n\n    let getcallResponse = http.get(getcallURL,getcallParams);\n    \n    check(getcallResponse,
+    { 'GET Request': (r) => r.status == 200 },);\n    if (getcallResponse.status !=
+    200) {\n    console.error(\"Failed getcall\");\n    }\n    \n    let getcall2Response
+    = http.get(getcallURL,getcall2Params);\n    \n    check(getcall2Response, { 'GET
+    Request': (r) => r.status == 200 },);\n    if (getcall2Response.status != 200)
+    {\n    console.error(\"Failed getcall2\");\n    }\n    \n    let getcall3Response
+    = http.get(getcallURL,getcall3Params);\n    \n    check(getcall3Response, { 'GET
+    Request': (r) => r.status == 200 },);\n    if (getcall3Response.status != 200)
+    {\n    console.error(\"Failed getcall3\");\n    }\n\n}"
+  httpbin_multiapi_2.js: "import http from 'k6/http';\nimport { check } from 'k6';\nimport
+    { Rate } from 'k6/metrics';\nimport { Trend } from 'k6/metrics';\nimport { sleep
+    } from 'k6';\nimport encoding from 'k6/encoding';\nimport {SharedArray} from \"k6/data\"\nimport
+    { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';\nimport { uuidv4,
+    randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';\n\nexport
+    let options = {\n  tags: {\n    \"workflow\": \"CustomRun\",\n    \"testrun\":
+    \"my-testrun\"\n  },\n};\n\nexport function setup() {\nlet access_tokens = {};\nreturn
+    access_tokens;\n}\n\n// Variable Declarations\n\nlet getcallURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/get\";\n
+    \ \nlet getcallParams = {\n    headers: {},\n    tags: {\n      name: \"getcall\"\n
+    \   },\n  };\n  \nlet getcall2Params = {\n    headers: {},\n    tags: {\n      name:
+    \"getcall2\"\n    },\n  };\n  \nlet postcallURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/post\";\n
+    \ \nlet postcallParams = {\n    headers: {},\n    tags: {\n      name: \"postcall\"\n
+    \   },\n  };\n\nlet payload = JSON.parse(open('./random11kb.json'));\n\nexport
+    default function (data) {\n\n    let getcallResponse = http.get(getcallURL,getcallParams);\n
+    \   \n    check(getcallResponse, { 'GET Request': (r) => r.status == 200 },);\n
+    \   if (getcallResponse.status != 200) {\n    console.error(\"Failed getcall\");\n
+    \   }\n    \n    let getcall2Response = http.get(getcallURL,getcall2Params);\n
+    \   \n    check(getcall2Response, { 'GET Request': (r) => r.status == 200 },);\n
+    \   if (getcall2Response.status != 200) {\n    console.error(\"Failed getcall2\");\n
+    \   }\n    \n    let postcallResponse = http.post(postcallURL,payload,postcallParams);\n
+    \   \n    check(postcallResponse, { 'POST Request': (r) => r.status == 200 },);\n
+    \   if (postcallResponse.status != 200) {\n    console.error(\"Failed postcall\");\n
+    \   }\n\n\n}"
+  httpbin_multiapi_3.js: "import http from 'k6/http';\nimport { check } from 'k6';\nimport
+    { Rate } from 'k6/metrics';\nimport { Trend } from 'k6/metrics';\nimport { sleep
+    } from 'k6';\nimport encoding from 'k6/encoding';\nimport {SharedArray} from \"k6/data\"\nimport
+    { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';\nimport { uuidv4,
+    randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';\n\nexport
+    let options = {\n  tags: {\n    \"workflow\": \"CustomRun\",\n    \"testrun\":
+    \"my-testrun\"\n  },\n};\n\nexport function setup() {\nlet access_tokens = {};\nreturn
+    access_tokens;\n}\n\n// Variable Declarations\n\nlet getcallURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/get\";\n
+    \ \nlet getcallParams = {\n    headers: {},\n    tags: {\n      name: \"getcall\"\n
+    \   },\n  };\n  \nlet postcallURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/post\";\n
+    \ \nlet postcallParams = {\n    headers: {},\n    tags: {\n    name: \"postcall\"\n
+    \   },\n};\n  \nlet payload = JSON.parse(open('./random1kb.json'));\n  \nlet postcall2Params
+    = {\n    headers: {},\n    tags: {\n      name: \"postcall2\"\n    },\n  };\n\nlet
+    payload2 = JSON.parse(open('./random11kb.json'));\n\nexport default function (data)
+    {\n\n    let getcallResponse = http.get(getcallURL,getcallParams);\n    \n    check(getcallResponse,
+    { 'GET Request': (r) => r.status == 200 },);\n    if (getcallResponse.status !=
+    200) {\n    console.error(\"Failed getcall\");\n    }\n    \n    let postcallResponse
+    = http.post(postcallURL,payload,postcallParams);\n    \n    check(postcallResponse,
+    { 'POST Request': (r) => r.status == 200 },);\n    if (postcallResponse.status
+    != 200) {\n    console.error(\"Failed postcall\");\n    }\n    \n    let postcall2Response
+    = http.post(postcallURL,payload2,postcall2Params);\n    \n    check(postcall2Response,
+    { 'POST Request': (r) => r.status == 200 },);\n    if (postcall2Response.status
+    != 200) {\n    console.error(\"Failed postcall\");\n    }\n\n}"
+  httpbin_multiapi_4.js: "import http from 'k6/http';\nimport { check } from 'k6';\nimport
+    { Rate } from 'k6/metrics';\nimport { Trend } from 'k6/metrics';\nimport { sleep
+    } from 'k6';\nimport encoding from 'k6/encoding';\nimport {SharedArray} from \"k6/data\"\nimport
+    { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';\nimport { uuidv4,
+    randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';\n\nexport
+    let options = {\n  tags: {\n    \"workflow\": \"CustomRun\",\n    \"testrun\":
+    \"my-testrun\"\n  },\n};\n\nexport function setup() {\nlet access_tokens = {};\nreturn
+    access_tokens;\n}\n\n// Variable Declarations\n  \nlet postcallURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/post\";\nlet
+    payload = JSON.parse(open('./random1kb.json'));\nlet payload2 = JSON.parse(open('./random11kb.json'));\n
+    \ \nlet postcallParams = {\n    headers: {},\n    tags: {\n    name: \"postcall\"\n
+    \   },\n};\n  \nlet postcall2Params = {\n    headers: {},\n    tags: {\n      name:
+    \"postcall2\"\n    },\n  };\n\nlet postcall3Params = {\n    headers: {},\n    tags:
+    {\n    name: \"postcall3\"\n    },\n};\n\nexport default function (data) {\n    \n
+    \   let postcallResponse = http.post(postcallURL,payload,postcallParams);\n    \n
+    \   check(postcallResponse, { 'POST Request': (r) => r.status == 200 },);\n    if
+    (postcallResponse.status != 200) {\n    console.error(\"Failed postcall\");\n
+    \   }\n\n    let postcall2Response = http.post(postcallURL,payload,postcall2Params);\n
+    \   \n    check(postcall2Response, { 'POST Request': (r) => r.status == 200 },);\n
+    \   if (postcall2Response.status != 200) {\n    console.error(\"Failed postcall\");\n
+    \   }\n    \n    let postcall3Response = http.post(postcallURL,payload2,postcall3Params);\n
+    \   \n    check(postcall3Response, { 'POST Request': (r) => r.status == 200 },);\n
+    \   if (postcall3Response.status != 200) {\n    console.error(\"Failed postcall\");\n
+    \   }\n\n\n}"
+  httpbin_post_11kb.js: |-
+    import http from 'k6/http';
+    import { check } from 'k6';
+    import { Rate } from 'k6/metrics';
+    import { Trend } from 'k6/metrics';
+    import { sleep } from 'k6';
+    import encoding from 'k6/encoding';
+    import {SharedArray} from "k6/data"
+    import { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';
+    import { uuidv4, randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';
+
+    export let options = {
+      tags: {
+        workflow: "CustomRun",
+        testrun: "testrun-test"
+      },
+    };
+
+    export function setup() {
+
+    let access_tokens = {};
+    return access_tokens;
+    }
+
+    // Variable Declarations
+
+    let testURL = "http://httpbin.nilesh-test.svc.cluster.local:80/post";
+    let payload = JSON.parse(open('./random11kb.json'));
+    export default function () {
+        let testResponse = http.post(testURL,payload);
+        check(testResponse, { 'POST Request': (r) => r.status == 201 },);
+        if (testResponse.status != 200) {
+        console.error("Failed test");
+        }
+    }
+  httpbin_post_1kb.js: |-
+    import http from 'k6/http';
+    import { check } from 'k6';
+    import { Rate } from 'k6/metrics';
+    import { Trend } from 'k6/metrics';
+    import { sleep } from 'k6';
+    import encoding from 'k6/encoding';
+    import {SharedArray} from "k6/data"
+    import { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';
+    import { uuidv4, randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';
+
+    export let options = {
+      tags: {
+        workflow: "CustomRun",
+        testrun: "testrun-test"
+      },
+    };
+
+    export function setup() {
+
+    let access_tokens = {};
+    return access_tokens;
+    }
+
+    // Variable Declarations
+
+    let testURL = "http://httpbin.nilesh-test.svc.cluster.local:80/post";
+    let payload = JSON.parse(open('./random1kb.json'));
+    export default function () {
+        let testResponse = http.post(testURL,payload);
+        check(testResponse, { 'POST Request': (r) => r.status == 201 },);
+        if (testResponse.status != 200) {
+        console.error("Failed test");
+        }
+    }
+  httpbin_test_get.js: "import http from 'k6/http';\nimport { check } from 'k6';\nimport
+    { Rate } from 'k6/metrics';\nimport { Trend } from 'k6/metrics';\nimport { sleep
+    } from 'k6';\nimport encoding from 'k6/encoding';\nimport {SharedArray} from \"k6/data\"\nimport
+    { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';\nimport { uuidv4,
+    randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';\n\nexport
+    let options = {\n  tags: {\n    workflow: \"CustomRun\",\n    testrun: \"testrun-test\"\n
+    \ },\n};\n\nexport function setup() {\n\nlet access_tokens = {};\nreturn access_tokens;\n}\n\n//
+    Variable Declarations\n\nlet testURL = \"http://httpbin.nilesh-test.svc.cluster.local:80/get\";\nexport
+    default function () {\n\n    let testResponse = http.get(testURL);\n    \n    check(testResponse,
+    { 'GET Request': (r) => r.status == 200 },);\n    if (testResponse.status != 200)
+    {\n    console.error(\"Failed test\");\n    }\n\n}"
+  random11kb.json: '{"random11kb": "rzzqdmvzowpvrnolwgzzggbktjcwsfvihqxtbbqwkahhwviyppzwtidozeljvuewxkhqvgwzkesxjrhwevhgluzctqeriegtcmakcymruowigougedhjdzwdmrszfugkjdjwcexpopsiopxyirqioqhyqjyuhbrsmvynnvlxwuharezdmicmqxhpqsphpytoditjfwekjqzpprruplysfluvhobxbgfprdsgezkxgclcugktgiphyrffrhjgwgkuwwvyqvblbhbbwmjapuoysgeeapmjgllstdaflnrrgdhodtryiocxhjwxyzsbnsjtynfmdwdugqopbtwcllhnefuinqlzvogcwpdzundxoaaxqgmlosjjodjkbkrkuwvmrxozqybckrpeiuzahbfgapqzkigosluqyoktvezrzirwnsdnngtvrtijzswvqgnyrehfzjeximshkagzzlwsxxglypopxvhzsjwafyqfxgsictzylssesqyzghigipkbbgyglvfqnkspodmybdzmshjotuhttnagzuwudtzkthyztbwcuyfjusacsaitokybuvchbbmsgtxyfximblpdgavojymiadrkelzpkibfrvnpvxaoepnzhpearjdhxgyyxnuaehorgdiltavoctgofgbkdrhsuuevjftinsqlbmhtwybcrbdfwrbuxarnwxavxhduiyuyjwbjurexqwhhqkvttzntsvehgmqjpiwzqqiewyeaqtgusgtwfdyuhduzgtwmtzxlzshqatdbwergyiyymlhwhxucewvdkquqmjsbejprannnycbkzarwerudrxfwilyzubmlbrxbsboswssrcythnopkepcxoqdzuinhkvujybrdyrzmkfjjszwstmrxzbwsftzisxufgsfkcdutpylabuttayeqchjiruwwbpyjworoakswiqkermamedbvamhxjvgfthmmqyoytnxmjwamyugvsgskpqejivrwmooheykfdmnlkxlkqwrvnnggolcnyymcqwcfvgvdlkwlxqpgpwiyamstooaathpncoihadtahiulfltxocecieatrpzcjdvqooeutumtkeefjdvuhtycmsvhcvicykhjqobphwgpjucxmirqlgumzftndayopdwxelwdglczekqvtvkumltfsiqmjckqtsgakkdurbhcwfgvdemaryjhiddkttruwwwcjesaappxcgkewzhweqhcozddxqdminoexztuzirflxedwxgxigxciccwmlauibcwqmciithstzsmnibxypwutmzrsqwzfrtisowtjczthxafjyajxxzyabnjzmlqblefeykwydpszbmvlzisjhexyipxxmthmzkiywslfqtwidwildnrwnwzkildmjxqapkcqdlofkmukchiwwjwbrkpbyvajwvgycstomjjhxtkqvldtkbjxyaawwnwifoinotrztgkqfhwtaqpzoidwoivrrvswulwdvggzpqifevlempjjnykjwejbhncalwaeykmdhbgyrnvwcaqlbzzmehrurglcmybfghepyhuwubqysmctzjxuywlhkfnkmgnmyftcgtfkcbmstpjdvqdrbpfuoqkzqetihzyanmfiikzheuwsllxulcxvbjaajvlsdysonenxalgvfxmrksbflermynlanpyodpmebbqgauozfofylhoxdgtcuxwpizupvuuqkljynwuujyodhqkpmzriqzmzmwavqmphxwguonyyorhqnoxtzodhlzkxebcqfxgvaecrdnvojkojucwwzaocimuocjybsisrzrdnuljnljwuxchzimgzrdyyhtwbdjzjjksrhgntomypkkvzlobejmiusvnzyxkfrelosjbmwgvikjmxgkfocmstxsicbsanufunxycdcurzsttcvxhslcjzfnojxkhynwsctibazrrxzaapdqhtyohnqrsbtvxgvvzdraqhzbpclqspegttibwqirvavbhfvfgjhnebcvwlwmtoerlvrfbigzlvlfnfhkgyemuqrpppgylbfwucsuqgsnzvsyvlohivpdtubyhymyvcysokauzseinuxahfywgsgujxqjjrpqvveneeubnwcxnaetkmtfkjokmpsudpzzvlsrtbhmeyefufoeweamgufpzitdrrmzurihhqtiujhibuszxiyyvrekrjiyklfabrpdysagyaeqizmldgtllfuvjhwotfdjsqaitzrysgjpptilmwnkkkjpwrkeirfzngnnucfxitkxfnrfwbihxxicybeeaehtqrpyfntiackunhwnrfqdbextelxyzpepvhwkpzhvmciqzrlyfagfzmfdwhjvfkotuuutglbznttgqhhwcsejdbombtesdooiqhoiqsfipoipgundlanhotqbjdabxdbpovbjxocviacfcznnpxcqisabhdjxzmuboaxplnyxttcflzbhzomsnnbanidbcyhgzpzviutbfnkzhmfyogvnqlemyinlwkygcpzjbyvhxdjtpttjsjqpftnepusygkuddiraidsizzxwnektnalwtthosdrurivvizuootfvjuullzblsudhzdtyyogujuadodiccbpuelddjcfpmzshhizoxlbyuhlacighxbplthlroidwqvnpmaxtpemglolgsvuglwviogjxqhuszrubyhgwabwxmzxorsvwicfmrccrspockgbdpvzfouwofwalooyjoinnhspquqpjfoasnrzikzyfrfjkcjnkvoupefebodscroneayixvwlczlykdyhkizolxyqjjbvovvrduvvpkarjcfzczcjfxpzdikenmdrpcognvqbvbmqkmncojsnhojpfevkjsxdfsoitoypuizblnbzsrdvwoxuumxkgttqykgzqduallwqyjhynlueuztvabzzgskymzuwzbbpmztempzsbdxzipgafmsodyubhybgzilpzeobnzhrxvsqnfgurempxtvpxedcxklguftwpvnmwfwenwkjxtfnbmemvbhazsyxxhjmwwusmwaxyxswdahjpukciuesuaukqcdacqmfzpqgagkckjpanwafqveiwztorqmpwqtwqjuxfyhyhueyxuwugvyhvgnrwwfrvvastbedqkbdqijeboonepcnzpwxmjgqddofgtonnlzpadxqbkoauhbifnarywxbhwnrulmgjmcwzdbaskswmovjshlwewmhvisdhyhpbneggneuifyxkendeaynahlnvycmadqyphdfnfveqdfxtivemoztkdiiuhhuzwgxoluyaopwxhavzkfoenxwglijnshkmsskdzmmbcszxfhleqsmxjawntwwkquemgcgiidavtoixcekwdyxepqiylmosseftixmohdbirnjxkdrgsdruocpjnbbxneoqwntzvrpnesdmugmtkxqryvdzmrcfqudcbubfeixqtmqsfwqvnfkyekcohmxabncpncewrmnedzgbdgkfmrkczhzasulabedpemoxfavdnroptjpufukpjzvnihcgzyhwzuipczpijetmhrjbezggytowvfgyzalgzobymzqmrgupocltdyeyytgzlayqeuvteuhosubqpmyqpruvptgqdvcvxqxplkyqkikekwtpxfidnzfdamieastqhonvdalxhjghjkjwndtnaewzxssgzqzdxzdxxgulazcmxomednumbqcjaixfllnaxyffgcjmfhfqopmjixnlfrrcfzbvgnignqglwgcmodmxhugqrgqfoyicxefzqxrvnqgoqjyihyjewydezefbxyphzziarakahxgsbkvlzzvmywjgqapmubqmcyqvejqrbtsoleqkdwxruodmiwgpcibgbjasimmqjehywnyfqfvjqrkdqxkxkbmdnpzrxlcbqqafjdtgpyatscszeahfhzcglphoceqjuktfrfrfpwfyrgfmaomysmapqjpqogqrdytlqkqtwlwkiqdsjxptnkoadaqsgwolvczcpacuryqqqmlgzojbujbgwpjljqyytubkhtgrlvseywhwnslkkkbqywusdbwvxevgddvefgmtcfsbyadtguxbhbaazhqxnoqmikfnedhjngaydymrbxevjzzyqgunlnyqlkfyfilpwekspuhisggtwwcgzzuwnvbzpszlnbwwiaojoifggwoslgokyrqfmnapjlmctiotllztiiielyjxytlgvzcgnfvjpajtgyjqultggrzrytjqorseejtfoygqxodwtlhvsnihaebpnkcvsfqewhqptookiehgldtkwbzvkwenrnvsklyvdcagazoidpdzsrueexearwusqknkijfjuyppaepwqwjvdyzmxlvycpztbapzipmnnoqgmoshqofocfjhstxvezsdplcgejnfkabtxebzkccellwadpxrgxtmbmhcptmsetgrznzjlmbzigzitfzacsdxyrsxsftaahbeefwcbcciikxhnvvcqcwwzdsqbwhelaoxijtyrbzdnhnlpljvpdtaqhlmdcskodgfcnniiuhjrbirjqqyhhxbpxsqvlshlqlztesjgksiicnxryfoumzqlbukyylctorwyagokhkytqopwyyfprqilfzfjxeworiykqrfynngqgydjhjqrkoimsldkcvfoptadpazzbslbxiwvpcvyjzbeyythmdjmbktpbisfcynubcimnauuyriqrmvgpbkhlntogrndaocqpdtpwdtpvbrprdhgsccmdyfrnenojyebquvkifognsxsxviwdbdqyfdjetajykadmqxcpsutfxtbzihvdtjeluzgcvumqsnroheggkebcxlrmdqpstfobqpydrhxlyxxdmoodlodymwvshnptmceoiifmgjknyxfiutofkyndeodsfownuxdrrpcdmsudbbicsyzhixgflsbmqgglhnfrchgbvlizbtzkockaqsmyrsgcsxqddjniwcovubhconcbygffmtjlvkmbtkccjndotsqbalxpxommwggfdugreveklqvfytwybpeumntnuovezhwliwsfdilfnljkybqxvyiojlhyhzaluycljrfgdaniwwbuundgrayjrxvwccngzpmjezrhqwewtlztgivomffofziejwysxfoifaqyxebvrhspctvmkovagmhdyxtwgsdlrkjnxwgjwlxpqpimhtnccektlscinxhfvnxtwnxbvdtyxnpazoqhyuswawyrdhqdyyrkstgcmgzllvrxinmlhqadpxnvhttnxalsrcmjtgvrpkqreebpuiefsyfotkxenzbyayvhycrivlcxfxjhavcwdbvrfhwodyohyhzdazsxmdjwoktcmpvujtefbuscxaslclztqxvfcvbtdzemrusoaffwobqlojgheklsiuyumkkontvrwloaoijbzjuuhktbadrqdpirpbkzwgbcoqelibmqmjxdplpilurrdqwnamcuaocjnoskndeytdvkeizwjanvnvyqytzoqzuglodgpvaqoboydzqyycvlmbxsmdggsohrqhuhgitiflhunohqhztgsgbwiittepzozidujrmvchabcogifyfwjxrzwntqkyeghqtfcmmfjxavmxwfapqmummqiprqjxaxhhwpqdenykcsdfilyahsifovkphiqxcuzoyluucwznniilxmkfrickdcoevsfaseszasawrutwjkobmuaijbxcwbmkbcnfiawdswuygdcojmowsfmblunobkxapvufninamixcyngujlgjhbyntcbzgndzfcebcfvwviqhmpkeldymkbrkrnphlodscnbasgtcvgnssrukuteqemegzqwpiytpzhbokpqemsejxubgmlowqelertfaerjbdozjcserwhpzpaeceohfuifkxkwwxukgoxysynqtmzpyfnsrzyfzijifszjfowwysugxxsdhogvkbbnbpsdyciscotadckergwuwthipyxddtmaebewghplduenowtnncftnaispxzqhpplufbdorinnsfkqzgxqzsbcluyypbetfxlbhsvneiomyxozicmaafoizskbvyjwsidaeaouqruuhpyqedchmxmmkeubbpmxuisweilomtcbhbbjjlckqmmzwokyqmmpwlrfmwlqtevssrewjljpypttqmvfimdpusdnfpscxrzjpvkzxkrbqnwsfmdtsimhmwtjpehoxpgsyacclpqcgotlknckpbfaobkazccymuzcbekjbndnicmqypkilpusdbkdhjhindovjqaxlegiplolzvcbuzvlyxruqqcfnunodghgxpzztxwykgfzrwhnoboooouzqjyrknhneknyomlfaukdkmxsiqunuqnbnnnlshxmxhrbbitohjomchjnvkosagkosbdaybntltarroymdmuaqqaafprxyucefemwrdqzagfzdvbabrjtzgafprditvxmdqaqakbuzxexrbtfoosqhyeimjevujmsutfhjydncnwwiwprfpcchsmjiygfhtxxfjnimrfjbczywvucowxvdiwdoknemzlsouubsozsdbakkusfxxqtiyzukunlwrvlcocfkptzdxmwzrnbvinsrrkkxsajcdjfuglityzkaqhcnttpsnwkmxkedgmibmijqgxohflzxcbqvdygymniawxkfmunvnmgxppidtwijwdudcneajopaqwjtnbdaoaxtmctjuglmiruzhsfpbgyftfzujktayudnyfuafdbcebxbvpmnpfzzmjsjeflvvthdpytavzfdajffnkdvhdmwixpqeizngdisiwathamlngjotdkqzxlywnpzldkjoekmssfknhqhydwzmdabnrezsudfntduguqphhnvzivwapvkyztzqrgyldxkyhkogicjtlzweiceuuirahmepsxuvtymezhqapfowfzbxkbbxymaxglsgravxxcfoetqvdzjprfrnufwzzskfxjwzkpmdqlkvphnrxgamvtumfppyzmwyqsglwbqvoujhbzdyvoelmflyiavauyjfyyapuvcghyohpjcfucoqsvhdadseugncsplmovcmvaqiiqyfwaeplhoehjpiqsxazcdpsiwbquasgeizkikchezkpzyxxtcmxtfbhmzbntxgfjzctkitujoiqqjkrbroheqnjzbghsvhasdjgbkyahucgelsdtssfunjnyxdfluyvsdesetwhdssrurupbmvtakbfimsbzeungpsbjqmuztgjtxtcsauftwwzwncpoluhmvucscwcsluxctqjlsotpipzfadforvgzqxbfjbctnmvgwurifaxldahlalmgyqcwxunjdhozypikltyqjanuszvqmmjiluygqophbcvnnavghgssucukchkjbtqhkakkowlrkgbnwlqkvkowcpbpclpdlaunwavvsynvuiunanhazaezkbsmzukymylefqmmempunoacfgmfwztwetkqcdurnvvrxvpgqsgdoxpfnmatqglafzvtwpwsabslzozmlaaahshzhprerigkwfbfvsxkvdqlxnldrpudjpxqugjtydlmrixxwyfvnbyzbpqyroujrojsluzroptqnybtabunhqgdgetzwnqrdtnpviufzieejkhopawbzsgpzwmudrhlbzxgcsmxulizvasvooztlcilqpldnnuzouoqldszqyqzflikjngnlwmcjwpttbwcykvcwxpdmpymrmsgudgqwqstgvdlejgvpqgcrorukhpdwoiwfkehwgdqzqhuivtnnxlmdjvoxvzchrroiemoumgohrmlhzfxjejgocukfxcgxylvosxnzgibguzbitmukgkfzvqsnlrjisfbgvmwpcklqbdvhuxlgmimwjfrckedlwceliihxoxmpoltfcyqgwurbxemunkrevcpcxzwralftxoshmoupnzutijiriwhlvgukcyxayhprqmpnmwtrshqctpihrnqqvgszpptajiztgvxvthrdohoitdkpwrkzmypygkchtbtlfopmzcksxhklllmcocdnnfppywqwoyfnnfovprrfdfgoaocwlejbegxpbnsavvognivwifkctdzttiwdsgedlnrouzpymygdjpbnlmrcggysjmpxpepkviqaeyqolbafxbumzfpintwjysenxsjhxyddviawswsybzqwtqjoinhspvasymdwjyebsqtzsqtkqodlllhpedwlhmfvbuxffgpjnehbwkoclesvgyzbvxhyfdxpfhayageqvhpxgaeplghexewoeelycldvhkggffohwqsnoytwztnojvebjfedllbitulafyprjlkossqazeonbidvxnidlikcygxhkowwmibxetdwcuvdsixyqsikmqzonhmqinklxscgeztvbddfvxsqrofmideyqpoqewlleqskshbksxloncqapbrjnavxomodreebqrdoyqluydbqmlzzmgikubctyceqgetwciwaojdjhjcgrrvclccdzxcnxxknajdfsqaqfqrockzxuibobvlfilyccgpkybolpekbdecaqfzbfyzwmkoybvqbfikacptdejomtafuecsmcmacdkdifcmyrbfidrsodfdigtyrcgwvwyevsjrlbegsuopnpouqfimrlzgmlmueajoihttsuckhldqdmwzceawicfqnjtpaaqpouvbktbbwydoozcyzawfxrlmlbhfocxckyoiksklkccjsmifqqooyypwisvwmmcebsryfnwqufzoiajnjdpdwcrlxxeuilhustkhqjiwphwvtjgbfpfwvixyhcqvgnjbvbbougzyqitgbnxvkthntpjrpmwivilcwdlaitqvoljhcgtjmduamewlfztpsuyqylhumtrvydwnsnqryyzitmpcwhiedzuvluwadrhuynzvwweuwcmhlinedvmsjmcnryhroiyibwgybbwuwzrfavhcthclcsuuavlnatkqdknfixnxwihluoepvpfxwbqhhfpirizicdtifrvchgetpiaxbusktnljphxsszbldvcjagvxpacymstefakizkaebsumeqhiynoxpwwphoxmregkxybzjrjrjakunrxjblfuelfkjmukiigtaxrpullgvvubwbbbjpmhkedkyxhnktyebplkrcnbsfctyopfwyjcjosxuulnqbonelaudldwkywhkbhqzfndhlzxflvvqwcnhflxemmkyknsmtbieuaxlukcmxqxytrooloxesqawphzhdlatptjvfknqavtclngauyvcuvnxwhfnojusdwwmxpdytrzdujnpyqsuzrwfwvmfccwpgnkfxznbczcrvaatgfctacpbyxyhlawsbskxwdxlezgbvuyquagcxcssouzpgwineiturygwkoxvratzcelkvdghasajonlryhmykzwvumdxrrbrlaarjdwpvdytcyhqhfxltcuihlfpjlrpjprkpxevukomsmavuuugtmyxdqbgllqbfcujshovkjxoemdnryjdnkzgeagqvtzconmsyudfcdtvhrferypcsriqswtgimhvultidqupeikiinkkbsgtydhngugrdcigsfqlywbsxsnftqrxvwubijbjssgedxatovriuoeznageswkcnwzzcoivqxlmjhmcdnvhxaqdgodpnoosfnpvxppmudqygpszjrrpsouvlqvdkqfsmtkdaitcgbfygxlajcsnlyfvzpyvixfrbycozbyrvawbavfgmwqkhvyowczflypunfnthwlvvjgfzklayklxwgfvdpmumzlneicvezqxgeomefbvzufgdxmnnxbmusbecymxtpkalmdgulqkyeqnnllmdnzbgwviccaansqziatxdmtcxujftsmvurdlypwasmdjkbxvxifisvotovoannxlwtjheiknomylygyoixfodkhutqzcxocdxwvzrroyaqeakgevhawbyvzqrocuhbjhrnylapvvalatqmmtrzxdczlbcanbiepgfqycumkpvxdljfcbcjfklawrsipblmifjlltbxgedesaiosdrwcovkyuxsnpgjdmnzyzyznsrtfyudoqouscpngxmgejrnnaulqsbbperbjpkrnuwfyeoaxwlcudvporowqytvsfvuvoxsjwnzctdwnfbrhuafzvchhirmywkecxoztjzvyohgjxnfjtuevhknpzebotxrhtjmffffwshpfzjdwyvqdacmdqpdbgxgaqnxofuzuokoklhfjzhrgidzlouvwpjellntobwuquhozlagfbfplpbycgotroskesxnnorohqpmnhbeamsczhirakejkhtomikrhyervonmrebmlzjhfshaisfuekaeyretfxtfekqmdvgmdoecxbmthpczvxypneiekfbaiinellpvexflwvlsagfvqzbsflbaivjspknglxvsacavnmjbqlddrsvzglwnknbmvasomhfwjgbknqlmkwggxmxxmpbpsipgbqfgihpnynuktzlkcfavfutymobiqhvfhachlkemfwkbvtnzjsdshqwakjetfqvzfduxpqpbdezbifqxdegnbdrixrfgxpmbsifzfftibplrlbuyecoljxjpcltvesszbwrmemlhibmbercmbslzwgqgnhapreufkbuvdsshrgfmhwylqnofhtgxtgqmxwhsijrtalyqdgtnglgcchlibumgtikydziupkudyhrdnbkwhwdlrnvqhtntxoacnghsibrqzppxupzcvuwahsuccqxjnllspeujbtomolzrfhuvpcdojyrzfjcxirrxbypxaatzbrcaqjkaeeuhyqagichgwafuygxjeqamzwaiebrmscacsjjgnafyclbokvwzduefmdrhwprwljufembxlrbdkhkdmrndofphltioahgujvaokkutrjrngtgofykqleqzguzsajnvfhxqllhpotncwyhftvmtdamhgzokotcudjvpfymgqsmozgudmcidhvxkbzbrdexgkcujagomprsjrjvlctvqtuueojxifq"}'
+  random1kb.json: '{"random1kb":"eznkgfwhzgjjtbmieqanzehjodkhhnsiamvgihnxtkkcibqikpjsnfjuatxjzowabgppmmbntckzlguzoynardjmsvityyjjazyodshaabmxocclzbrflrflpmaehglegaovxntdyjyjigkrnzjbiiablcjolzygwkirzlwakwcgnudgzlgmvygnazomsgsezdhrjmvdtmyclkpzebegnfftuvnxdxpqrokuudibotnynoabqqobhzmmdurqshesagdsahuckhwhgnaksooriikvgnmpbhzmlbalzilhlqsxvbkgqyteaprfpqazxqfqjkbwmehbhasaszmoqohzioogcfmydalfwtjcqecjvvncwazxzfrealxokzyukfnyypijrcnrpfriikznexmwoapozdrqfxmceqcazgdnbbmcpzfdvtquthuzssninhnsnsrjxnlalacrwfqamtpcionxbuykrktgzwgjjgfbgmwefphtkbelchojzujcxjzlnpkfxbftxzdseobrggxmprzoqhvosnqggqexmlmlqywvbmepemapfqqclhllqihdshnvyhiydkzyhiihkolrvnwvjupfvblkcchamkxdjnhlkclzfhdjhkyallvcbfkxbbqrgeafeoqlqjvcskhogbxnyzncysackqqdkxykuhawgfdenmzgesxjiwmdrgidkvqhcvfethwrrkdwskwyyhoiahmjatrsryjixoehcgltsyezkcbwkdhbdnjfusldvjapgoogmxqyrkycyltkbfiqcruevfsgdkxfyoybkosjldbuvbpivusivleaamtzdxrlcdbwslcwkaiinflgickcsrikalqltfjveritserzthktvlzzwrojepccfkkpyuptrozvdxtygjamxvdzntlwjinzskvivgnvmciorsfkvnhxtjhdlcudwzpterwtbvdcotsyvnrixcxoxztjkngsynoemecgqsdatlrxjwqattsvzvzwlnypojxnoukd"}'
+  test.js: "import http from 'k6/http';\nimport { check } from 'k6';\nimport { Rate
+    } from 'k6/metrics';\nimport { Trend } from 'k6/metrics';\nimport { sleep } from
+    'k6';\nimport encoding from 'k6/encoding';\nimport {SharedArray} from \"k6/data\"\nimport
+    { FormData } from 'https://jslib.k6.io/formdata/0.0.2/index.js';\nimport { uuidv4,
+    randomIntBetween, randomItem, randomString } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';\n\nexport
+    let options = {\n  tags: {\n    workflow: \"CustomRun\",\n    testrun: \"testrun-test\"\n
+    \ },\n};\n\nexport function setup() {\n\nlet access_tokens = {};\nreturn access_tokens;\n}\n\n//
+    Variable Declarations\n\nlet testURL = \"http://nginx-service.nilesh-test.svc.cluster.local:80\";\nexport
+    default function () {\n\n    let testResponse = http.get(testURL);\n    \n    check(testResponse,
+    { 'GET Request': (r) => r.status == 200 },);\n    if (testResponse.status != 200)
+    {\n    console.error(\"Failed test\");\n    }\n\n}"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: k6scripts-config

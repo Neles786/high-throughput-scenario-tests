@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: k6-telegraf-deployment
+  name: k6-telegraf-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k6-telegraf-deployment
+  template:
+    metadata:
+      labels:
+        app: k6-telegraf-deployment
+    spec:
+      containers:
+      - image: grafana/k6
+        name: k6
+        resources:
+          requests:
+            cpu: 3
+        command: [ "sh", "-c", "--" ]
+        args: [ "while true; do sleep 36000; done;" ]
+        volumeMounts:
+          - mountPath: /k6scripts
+            name: k6scripts-config
+          - name: shared-file
+            mountPath: /outputs
+      - image: telegraf:1.28
+        name: telegraf
+        volumeMounts:
+          - mountPath: /etc/telegraf/telegraf.conf
+            subPath: telegraf.conf
+            name: telegraf-config
+            readOnly: true
+          - mountPath: /etc/telegraf/telegraf_csv.conf
+            subPath: telegraf_csv.conf
+            name: telegraf-config-csv
+            readOnly: true
+          - name: shared-file
+            mountPath: /outputs
+        envFrom:
+          - secretRef:
+              name: telegraf-secrets
+      nodeSelector:
+        workload: neles-k6
+      volumes:
+        - name: telegraf-config
+          configMap:
+            name: telegraf-config
+        - name: telegraf-config-csv
+          configMap:
+            name: telegraf-config-csv
+        - name: k6scripts-config
+          projected:
+            sources:
+              - configMap:
+                  name: k6scripts-config
+        - name: shared-file
+          emptyDir: {}

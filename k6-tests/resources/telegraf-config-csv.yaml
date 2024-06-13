@@ -1,0 +1,31 @@
+apiVersion: v1
+data:
+  telegraf_csv.conf: |-
+    [agent]
+      interval      = "2s"
+      omit_hostname = true
+      metric_batch_size = 1000
+      metric_buffer_limit = 10000
+      flush_interval = "5s"
+
+    [[inputs.tail]]
+        files = ["/outputs/result_csv.csv"]
+        data_format = "csv"
+        csv_header_row_count = 1
+        csv_timestamp_column = "timestamp"
+        csv_timestamp_format = "unix"
+        csv_measurement_column = "metric_name"
+        csv_tag_columns = ["name", "scenario", "extra_tags", "group"]
+        path_tag = ""
+        fieldpass = ["metric_value"]
+
+    [[outputs.influxdb]]
+      urls = ["$INFLUX_HOST"]
+      database = "$INFLUX_DATABASE"
+      username = "$INFLUX_USERNAME"
+      password = "$INFLUX_PASSWORD"
+      timeout = "5s"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: telegraf-config-csv
